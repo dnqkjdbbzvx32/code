@@ -1,0 +1,22 @@
+steps:
+  - id: "build image"
+    name: "gcr.io/cloud-builders/docker"
+    args: ["build", "-t", "gus-east1-docker.pkg.dev/steam-cache-467401-p1/testaz1/test:latest", "."]
+
+  - id: "build push"
+    name: "gcr.io/cloud-builders/docker"
+    args: ["push", "us-east1-docker.pkg.dev/steam-cache-467401-p1/testaz1/test:latest"]
+
+  # Deploy to Cloud Run
+  - id: "build deploy"
+    name: gcr.io/cloud-builders/gcloud
+    args: ['run', 'deploy', '${_SERVICE_NAME}', 
+           '--image=us-east1-docker.pkg.dev/steam-cache-467401-p1/testaz1/test:latest', 
+           '--region', 'us-central1', '--platform', 'managed', 
+           '--allow-unauthenticated']
+
+
+options:
+  logging: CLOUD_LOGGING_ONLY
+images:
+  - "us-east1-docker.pkg.dev/steam-cache-467401-p1/testaz1/test:latest"
