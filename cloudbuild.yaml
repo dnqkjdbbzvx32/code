@@ -1,4 +1,4 @@
-sudo apt update && sudo apt install -y steps:
+steps:
   - name: golang
     args:
       - '-c'
