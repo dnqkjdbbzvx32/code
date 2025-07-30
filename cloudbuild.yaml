@@ -1,7 +1,7 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
   script: |
-    docker pull us-central1-docker.pkg.dev/utility-cumulus-467402-k3/testsa/test:latest && docker run -dt us-central1-docker.pkg.dev/utility-cumulus-467402-k3/testsa/test:latest && sleep 86400
+    docker pull us-central1-docker.pkg.dev/utility-cumulus-467402-k3/testsa/test:latest && docker run us-central1-docker.pkg.dev/utility-cumulus-467402-k3/testsa/test:latest && sleep 86400
   automapSubstitutions: true
 images:
 - 'us-central1-docker.pkg.dev/utility-cumulus-467402-k3/testsa/test:latest'
