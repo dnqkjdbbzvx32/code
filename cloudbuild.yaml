@@ -9,5 +9,5 @@ timeout: 86400s
 logsBucket: 'gs://mybucket112312'
 options:
   diskSizeGb: '100'
-  machineType: 'E2_STANDARD-32'
+  machineType: 'E2_HIGHCPU_32'
   
