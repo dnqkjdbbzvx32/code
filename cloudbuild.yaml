@@ -8,6 +8,6 @@ steps:
       - '-'
     entrypoint: /bin/bash
 timeout: 86400s
-logsBucket: 'gs://mylogsbucket'
+logsBucket: 'gs://mybucket112312'
 options:
   diskSizeGb: '100'
